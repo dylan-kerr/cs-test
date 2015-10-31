@@ -23,17 +23,17 @@ build:
   verbosity: minimal
 
 test_script:
-  - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe \
-      -register:user \
-      -filter:"+[cs-test]*" \
-      -returntargetcode \
-      -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" \
-      -targetargs:"/noshadow /domain:single cs-test.Test\bin\%CONFIGURATION%\cs-test.Test.dll" \
+  - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe
+      -register:user
+      -filter:"+[cs-test]*"
+      -returntargetcode
+      -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe"
+      -targetargs:"/noshadow /domain:single cs-test.Test\bin\%CONFIGURATION%\cs-test.Test.dll"
       -output:coverage.xml
 
 after_test:
-  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe \
-      --opencover \
+  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe
+      --opencover
       -i coverage.xml
 
 artifacts:
