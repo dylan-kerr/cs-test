@@ -1,0 +1,12 @@
+version: {build}
+configuration: Release
+
+build:
+  project: cs-test.sln
+  verbosity: minimal
+
+artifacts:
+- path: bin\Release\cs-test.exe
+
+on_finish:
+- ps: .\bin\Release\cs-test.exe
