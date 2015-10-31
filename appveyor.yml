@@ -1,4 +1,4 @@
-version: {build}
+version: 0.1.{build}
 configuration: Release
 
 build:
@@ -6,7 +6,7 @@ build:
   verbosity: minimal
 
 artifacts:
-- path: bin\Release\cs-test.exe
+  - path: bin\Release\cs-test.exe
 
 on_finish:
-- ps: .\bin\Release\cs-test.exe
+  - ps: .\bin\Release\cs-test.exe
