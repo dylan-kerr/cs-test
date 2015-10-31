@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace cs_test
 {
-    class Program
+    public class Widget
     {
-        static void Main(string[] args)
+        public override String ToString()
         {
-            Console.WriteLine("Success!");
+            return "I'm a widget!";
         }
     }
 }

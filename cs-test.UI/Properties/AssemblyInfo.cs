@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("cs-test")]
+[assembly: AssemblyTitle("cs-test.UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("cs-test")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("Dylan Kerr")]
+[assembly: AssemblyProduct("cs-test.UI")]
+[assembly: AssemblyCopyright("Copyright © Dylan Kerr 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("be69a3f6-2471-40bb-8acf-7442f61d3f41")]
+[assembly: Guid("50508ea0-6af4-446c-9eae-51b9104d2e93")]
 
 // Version information for an assembly consists of the following four values:
 //
