@@ -28,7 +28,7 @@ test_script:
       -filter:"+[cs-test]*" \
       -returntargetcode \
       -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" \
-      -targetargs:"/noshadow /domain:single cs-test.Test\bin\$(configuration)\cs-test.Test.dll" \
+      -targetargs:"/noshadow /domain:single cs-test.Test\bin\%CONFIGURATION%\cs-test.Test.dll" \
       -output:coverage.xml
 
 after_test:
@@ -40,4 +40,4 @@ artifacts:
   - path: cs-test.UI\bin\$(configuration)
 
 on_finish:
-  - cs-test.UI\bin\$(configuration)\cs-test.UI.exe
+  - cs-test.UI\bin\%CONFIGURATION%\cs-test.UI.exe
