@@ -2,4 +2,4 @@ language: csharp
 solution: cs-test.sln
 
 after_script:
-  - mono ./bin/Debug/cs-test.exe
+  - mono ./bin/Release/cs-test.exe
