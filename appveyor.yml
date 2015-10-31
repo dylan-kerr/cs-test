@@ -27,7 +27,7 @@ test_script:
       -register:user
       -filter:"+[cs-test]*"
       -returntargetcode
-      -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe"
+      -target:"nunit-console.exe"
       -targetargs:"/noshadow /domain:single cs-test.Test\bin\%CONFIGURATION%\cs-test.Test.dll"
       -output:coverage.xml
 
