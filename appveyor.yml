@@ -13,7 +13,7 @@ environment:
     secure: 3EbRXPQkldKUCN544xogYZ7Py3ccW/V6WGqeTY4AtVRqXlZvHRBIv8a7rw07l6o/
 
 after_test:
-  - packages\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single cs-test.Test\bin\Release\cs-test.Test.dll" -output:coverage.xml
+  - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single cs-test.Test\bin\Release\cs-test.Test.dll" -output:coverage.xml
   - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover coverage.xml
 
 artifacts:
