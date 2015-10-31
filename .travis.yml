@@ -1,5 +1,9 @@
 language: csharp
 solution: cs-test.sln
 
+script:
+  - xbuild /p:Configuration=Release cs-test.sln
+  - mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe ./cs-test.Test/bin/Release/cs-test.Test.dll
+
 after_script:
   - mono ./cs-test.UI/bin/Release/cs-test.UI.exe

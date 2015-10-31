@@ -1,23 +1,43 @@
 version: 0.1.{build}
 configuration: Release
 
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: 3EbRXPQkldKUCN544xogYZ7Py3ccW/V6WGqeTY4AtVRqXlZvHRBIv8a7rw07l6o/
+
+cache:
+  - packages -> **\packages.config
+
 install:
   - nuget restore
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
 
 build:
   project: cs-test.sln
   verbosity: minimal
 
-environment:
-  COVERALLS_REPO_TOKEN:
-    secure: 3EbRXPQkldKUCN544xogYZ7Py3ccW/V6WGqeTY4AtVRqXlZvHRBIv8a7rw07l6o/
+test_script:
+  - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe \
+      -register:user \
+      -filter:"+[cs-test]*" \
+      -returntargetcode \
+      -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" \
+      -targetargs:"/noshadow /domain:single cs-test.Test\bin\$(configuration)\cs-test.Test.dll" \
+      -output:coverage.xml
 
 after_test:
-  - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single cs-test.Test\bin\Release\cs-test.Test.dll" -output:coverage.xml
-  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml
+  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe \
+      --opencover \
+      -i coverage.xml
 
 artifacts:
-  - path: cs-test.UI\bin\Release\*
+  - path: cs-test.UI\bin\$(configuration)
 
 on_finish:
-  - ps: .\cs-test.UI\bin\Release\cs-test.UI.exe
+  - cs-test.UI\bin\$(configuration)\cs-test.UI.exe
