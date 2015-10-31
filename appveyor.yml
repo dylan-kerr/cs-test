@@ -14,7 +14,7 @@ environment:
 
 after_test:
   - packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single cs-test.Test\bin\Release\cs-test.Test.dll" -output:coverage.xml
-  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover coverage.xml
+  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml
 
 artifacts:
   - path: cs-test.UI\bin\Release\*
