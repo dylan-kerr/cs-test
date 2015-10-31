@@ -1,5 +1,5 @@
 language: csharp
 solution: cs-test.sln
 
-after-script:
+after_script:
   - mono ./bin/Debug/cs-test.exe
