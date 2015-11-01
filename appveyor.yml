@@ -36,7 +36,7 @@ after_test:
     if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
         packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe `
           --opencover `
-          /i coverage.xml
+          -i coverage.xml
     }
 
 artifacts:
