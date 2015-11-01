@@ -32,7 +32,7 @@ test_script:
       -output:coverage.xml
 
 after_test:
-  - ps: |
+  - ps: >-
     if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
         packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe `
           --opencover `
