@@ -32,9 +32,9 @@ test_script:
       -output:coverage.xml
 
 after_test:
-  - packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe
-      --opencover
-      -i coverage.xml
+  - ps: if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe
+          --opencover
+          -i coverage.xml}
 
 artifacts:
   - path: cs-test.UI\bin\$(configuration)
