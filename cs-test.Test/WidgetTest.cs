@@ -11,6 +11,30 @@ namespace cs_test.Test
     [TestFixture]
     public class WidgetTest
     {
+        public class TheMakeWidgetMethod
+        {
+            private dynamic widget;
+
+            [TestFixtureSetUp]
+            public void Init()
+            {
+                widget = Widget.MakeWidget();
+            }
+
+            [Test]
+            public void ReturnsAWidget()
+            {
+                Assert.That(widget, Is.TypeOf<Widget>());
+            }
+
+            [Test]
+            public void ReturnsDifferentWidgetEachTime()
+            {
+                var secondWidget = Widget.MakeWidget();
+                Assert.That(secondWidget, Is.Not.SameAs(widget));
+            }
+        }
+
         public class TheToStringMethod
         {
             private Widget widget;
@@ -18,7 +42,7 @@ namespace cs_test.Test
             [SetUp]
             public void Init()
             {
-                widget = new Widget();
+                widget = Widget.MakeWidget();
             }
 
             [Test]

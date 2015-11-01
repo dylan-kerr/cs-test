@@ -11,7 +11,7 @@ namespace cs_test.UI
     {
         static void Main(string[] args)
         {
-            var widget = new Widget();
+            var widget = Widget.MakeWidget();
             Console.WriteLine(widget);
         }
     }

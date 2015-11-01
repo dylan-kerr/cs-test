@@ -8,6 +8,15 @@ namespace cs_test
 {
     public class Widget
     {
+        private Widget()
+        {
+        }
+
+        public static Widget MakeWidget()
+        {
+            return new Widget();
+        }
+
         public override String ToString()
         {
             return "I'm a widget!";
